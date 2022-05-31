@@ -223,7 +223,6 @@ void Player::updateMissiles(sf::Time dt, sf::Time totalTime, sf::Vector2f resolu
         }
         if (missile->isActive())
             missile->update(dt);
-   
     }
 
     newMissileTime_ = totalTime;

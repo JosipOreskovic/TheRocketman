@@ -31,11 +31,12 @@ void Game::DetectCollision(std::vector<std::shared_ptr<GameObject>> const& playe
     {
         for (auto const& gameObject : gameObjects)
         {
-            if (!playerObject->isDestroyed() && !gameObject->isDestroyed() && (playerObject->getSprite().getGlobalBounds().intersects(gameObject->getSprite().getGlobalBounds())))
+            if (!playerObject->isDestroyed() && !gameObject->isDestroyed()
+                && playerObject->isActive() && gameObject->isActive()
+                && (playerObject->getSprite().getGlobalBounds().intersects(gameObject->getSprite().getGlobalBounds())))
             {
                 playerObject->hit();
-                if(playerObject->isActive())
-                    soundManager_.playObjectExplosionSound();
+                soundManager_.playObjectExplosionSound();
                 
                 if (gameObject->isDestructible())
                 {

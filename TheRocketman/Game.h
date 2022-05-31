@@ -50,19 +50,11 @@ private:
 
 	sf::Time getTotalTime() const;
 
-    void spawnTiles();
-    void spawnMines();
-    void spawnEnemyFleet();
-    void spawnMeteors();
-    void spawnRockets(sf::Time dt);
-    void spawnTanks(sf::Time dt);
-    void spawnFuelTanks(sf::Time dt);
-
     void updateGameObjects(sf::Time dt, std::vector<std::shared_ptr<GameObject>>& gameObjects);
     void updateGameObjects(sf::Time dt, std::vector<std::shared_ptr<GameObject>>& gameObjects, sf::Vector2f playerPosition);
 
     void spawnGameObjects();
-    void spawn(std::string objectName, std::vector<std::shared_ptr<GameObject>>& gameObjects);
+    void spawn(std::string objectName);
 
     void updateHUD();
     void updateBackground(sf::Time dt);
@@ -74,6 +66,8 @@ private:
 
     int getScore() const;
     void setScore(int score);
+
+    sf::Vector2f  GetResolution();
 
     void DetectCollision(Player& player, std::shared_ptr<GameObject> const& gameObject, sf::Time const& totalTime);
     void DetectCollision(Player& player, std::vector<std::shared_ptr<GameObject>> const& gameObjects, sf::Time const& totalTime);

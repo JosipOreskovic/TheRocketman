@@ -3,7 +3,7 @@
 //
 
 #include "Missile.h"
-
+#include "Game.h"
 #include "Bomb.h"
 
 Missile::Missile(float x, float y, float speed, bool destructible, int score, int fuel) : GameObject(x, y, speed, destructible, score, fuel)

@@ -1,29 +1,31 @@
 
 #include "Game.h"
 
+
+
 void Game::spawnGameObjects()
 {
     if (tiles_.empty() || levelChange_)
-        spawn("Tiles", tiles_);
+        spawn("Tiles");
     if (rockets_.empty() || levelChange_)
-        spawn("Rockets", rockets_);
+        spawn("Rockets");
     if (fuelTanks_.empty() || levelChange_)
-        spawn("FuelTanks", fuelTanks_);
+        spawn("FuelTanks");
     if (tanks_.empty() || levelChange_)
-        spawn("PlasmaCannons", tanks_);
+        spawn("PlasmaCannons");
 
     if (level_ == 2 && mines_.empty())
-        spawn("Mines", mines_);
+        spawn("Mines");
     if (level_ == 3 && meteors_.empty())
-        spawn("Meteors", meteors_);
+        spawn("Meteors");
     if (level_ == 4 && enemyFleet_.empty())
-        spawn("EnemyFleet", enemyFleet_);
+        spawn("EnemyFleet");
 
     if (levelChange_)
         levelChange_ = false;
 }
 
-void Game::spawn(std::string objectName, std::vector<std::shared_ptr<GameObject>>& gameObjects)
+void Game::spawn(std::string objectName)
 {
     std::string fileName("Assets/Levels/Level" + std::to_string(level_) + "/" + objectName + ".txt");
     std::string s;
